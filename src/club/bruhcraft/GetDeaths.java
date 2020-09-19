@@ -1,6 +1,6 @@
 package club.bruhcraft;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -15,10 +15,10 @@ public class GetDeaths implements CommandExecutor {
                 String name = args[0];
                 OfflinePlayer pl = Bukkit.getOfflinePlayer(name);
                 if (DeathCounter.getPlugin().get_config().hasPlayer(pl.getUniqueId().toString())) {
-                    String s = ChatColor.of("#d13bff") + "Deaths for " + name + ": " + ChatColor.of("#00ccff") + DeathCounter.getPlugin().get_config().getDeathsFor(pl.getUniqueId());
+                    String s = ChatColor.AQUA + "Deaths for " + name + ": " + ChatColor.LIGHT_PURPLE + DeathCounter.getPlugin().get_config().getDeathsFor(pl.getUniqueId());
                     sender.sendMessage(s);
                 } else {
-                    sender.sendMessage(ChatColor.of("#d13bff") + "That player has not died!");
+                    sender.sendMessage(ChatColor.AQUA + "That player has not died!");
                 }
             } else {
                 sender.sendMessage(ChatColor.RED + "Please supply a player!");

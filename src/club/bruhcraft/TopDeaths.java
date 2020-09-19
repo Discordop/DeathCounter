@@ -1,6 +1,6 @@
 package club.bruhcraft;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,12 +26,12 @@ public class TopDeaths implements CommandExecutor {
             AtomicInteger elementNumber = new AtomicInteger(1);
             if (entries.isEmpty()) sb.append(ChatColor.RED).append("No deaths!");
             else {
-                sb.append(ChatColor.of("#00ddff")).append("---------------------------------\n");
+                sb.append(ChatColor.AQUA).append("---------------------------------\n");
                 entries.forEach((e) -> {
-                    sb.append(ChatColor.of("#00ffb7")).append("#").append(elementNumber.get()).append(" ").append(ChatColor.of("#d13bff")).append(e.getKey().getName()).append(": ").append(ChatColor.RESET).append(ChatColor.of("#00ccff")).append(e.getValue()).append(" deaths\n");
+                    sb.append(ChatColor.DARK_PURPLE).append("#").append(elementNumber.get()).append(" ").append(ChatColor.AQUA).append(e.getKey().getName()).append(": ").append(ChatColor.RESET).append(ChatColor.LIGHT_PURPLE).append(e.getValue()).append(" deaths\n");
                     elementNumber.getAndIncrement();
                 });
-                sb.append(ChatColor.of("#00ddff")).append("---------------------------------");
+                sb.append(ChatColor.AQUA).append("---------------------------------");
             }
             sender.sendMessage(sb.toString());
         } else {

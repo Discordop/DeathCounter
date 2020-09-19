@@ -3,8 +3,8 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'club.bruhcraft'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -17,7 +17,13 @@ sourceSets.main {
     java.srcDir "src/"
 }
 
+shadowJar {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    archiveFileName = "DeathCounter-${getVersion()}.jar"
+}
+
 dependencies {
-    compileOnly 'com.destroystokyo.paper:paper-api:1.16.3-R0.1-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     implementation files('plugin.yml')
 }
