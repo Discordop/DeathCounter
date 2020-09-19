@@ -3,8 +3,8 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'club.bruhcraft'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -15,6 +15,12 @@ repositories {
 
 sourceSets.main {
     java.srcDir "src/"
+}
+
+shadowJar {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    archiveFileName = "DeathCounter-${getVersion()}.jar"
 }
 
 dependencies {
